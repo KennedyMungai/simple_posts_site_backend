@@ -4,7 +4,7 @@ import datetime
 
 import passlib.hash as _hash
 import sqlalchemy.orm as _orm
-from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy import Column, DateTime, Integer, String, ForeignKey
 
 from database import Base
 
@@ -22,3 +22,7 @@ class UserModel(Base):
 class PostModel(Base):
     __tablename__ = "posts"
     id = Column(Integer(), primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    post_title = Column(String)
+    post_body = Column(String)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow())

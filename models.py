@@ -10,6 +10,11 @@ from database import Base
 
 
 class UserModel(Base):
+    """The template for the UserMOdel data structure
+
+    Args:
+        Base (Class): The class which is inherited by the UserModel
+    """
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
@@ -20,6 +25,11 @@ class UserModel(Base):
 
 
 class PostModel(Base):
+    """The template for the PostModel data structure
+
+    Args:
+        Base (Class): The parent class of the class
+    """
     __tablename__ = "posts"
     id = Column(Integer(), primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))

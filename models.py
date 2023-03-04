@@ -2,8 +2,8 @@
 """
 import datetime
 
-import passlib.hash as hash
-import sqlalchemy.orm as orm
+import passlib.hash as _hash
+import sqlalchemy.orm as _orm
 from sqlalchemy import Column, DateTime, Integer, String
 
 from database import Base

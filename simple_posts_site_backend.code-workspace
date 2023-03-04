@@ -5,6 +5,12 @@
     }
   ],
   "settings": {
-    "cSpell.words": ["autoflush", "dotenv", "sessionmaker", "sqlalchemy"]
+    "cSpell.words": [
+      "autoflush",
+      "dotenv",
+      "passlib",
+      "sessionmaker",
+      "sqlalchemy"
+    ]
   }
 }

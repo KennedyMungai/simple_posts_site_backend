@@ -37,4 +37,4 @@ class PostModel(Base):
     post_title = Column(String)
     post_body = Column(String)
     created_at = Column(DateTime, default=datetime.datetime.utcnow())
-    user = _orm.relationship("User", back_populates="post")
+    user = _orm.relationship("User", back_populates="posts")

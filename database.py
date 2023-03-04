@@ -1,3 +1,5 @@
+"""Created the file that holds the logic for the database file
+    """
 import sqlalchemy
 import sqlalchemy.ext.declarative as declarative
 import sqlalchemy.orm as orm

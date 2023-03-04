@@ -10,7 +10,7 @@ load_dotenv()
 
 DB_URL = getenv('MYSQL_PATH')
 
-engine = create_engine(DB_URL)
+engine = create_engine(DB_URL, {"check_same_thread": False})
 
 SessionLocal = orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

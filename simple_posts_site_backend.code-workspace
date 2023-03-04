@@ -5,6 +5,6 @@
     }
   ],
   "settings": {
-    "cSpell.words": ["dotenv", "sqlalchemy"]
+    "cSpell.words": ["autoflush", "dotenv", "sessionmaker", "sqlalchemy"]
   }
 }

@@ -11,3 +11,5 @@ load_dotenv()
 DB_URL = getenv('MYSQL_PATH')
 
 engine = create_engine(DB_URL)
+
+SessionLocal = orm.sessionmaker(autocommit=False, autoflush=False, bind=engine)

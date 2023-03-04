@@ -6,10 +6,10 @@ import passlib.hash as hash
 import sqlalchemy.orm as orm
 from sqlalchemy import Column, Table, Row, Integer, String, DateTime
 
-import database
+from database import Base
 
 
-class UserModel(database.Base):
+class UserModel(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)

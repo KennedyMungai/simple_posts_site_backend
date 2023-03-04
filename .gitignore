@@ -1,3 +1,4 @@
 simple_posts_app
 requirements.txt
 .env
+keys.py

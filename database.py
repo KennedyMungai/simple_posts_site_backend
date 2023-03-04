@@ -1,12 +1,12 @@
 """Created the file that holds the logic for the database file
     """
+from os import getenv
+
 import sqlalchemy
 import sqlalchemy.ext.declarative as declarative
 import sqlalchemy.orm as orm
-from os import getenv
-from sqlalchemy import create_engine
-
 from dotenv import load_dotenv
+from sqlalchemy import create_engine
 
 load_dotenv()
 

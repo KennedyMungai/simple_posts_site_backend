@@ -22,6 +22,7 @@ class UserModel(Base):
     email = Column(String, unique=True, index=True)
     password_hash = Column(String)
     created_at = Column(DateTime, default=datetime.datetime.utcnow())
+    posts = _orm.relationship("Post", back_populates="user")
 
 
 class PostModel(Base):
@@ -36,3 +37,4 @@ class PostModel(Base):
     post_title = Column(String)
     post_body = Column(String)
     created_at = Column(DateTime, default=datetime.datetime.utcnow())
+    user = _orm.relationship("User", back_populates="post")

@@ -7,3 +7,7 @@ import sqlalchemy
 import sqlalchemy.orm as orm
 
 import database
+
+
+class UserModel(database.Base):
+    # ll

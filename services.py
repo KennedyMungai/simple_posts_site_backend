@@ -67,5 +67,5 @@ async def create_user(user: UserRequest, _db: _orm.Session):
     )
 
     # Save the user in the database
-    db.add(user_object)
-    db.commit()
+    _db.add(user_object)
+    _db.commit()

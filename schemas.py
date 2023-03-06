@@ -1,7 +1,8 @@
 """A file that holds all the schema data
 """
-from pydantic import BaseModel
 import datetime
+
+from pydantic import BaseModel
 
 
 class UserBase(BaseModel):

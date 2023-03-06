@@ -13,3 +13,7 @@ class UserBase(BaseModel):
     email: str
     name: str
     phone: str
+
+
+class UserRequest(UserBase):
+    password: str

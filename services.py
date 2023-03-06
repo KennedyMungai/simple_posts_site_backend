@@ -23,5 +23,5 @@ def get_db():
         _db.close()
 
 
-async def get_user_by_email(email: str, db: orm.Session):
-    return db.query(_models.UserModel).filter(_models.UserModel.email == email).first()
+async def get_user_by_email(email: str, _db: orm.Session):
+    return _db.query(_models.UserModel).filter(_models.UserModel.email == email).first()

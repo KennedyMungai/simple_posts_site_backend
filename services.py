@@ -9,6 +9,11 @@ def create_db():
 
 
 def get_db():
+    """Created a database session
+
+    Yields:
+        db: The database session
+    """
     db = _database.SessionLocal()
 
     try:

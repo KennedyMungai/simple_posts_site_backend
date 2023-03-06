@@ -56,6 +56,7 @@ async def create_user(user: UserRequest, _db: _orm.Session):
         raise HTTPException(
             status_code=400, detail="Provide a valid email address")
 
+    # Convert a normal password to a hash
     hashed_password = hash.bcrypt.hash(user.password)
 
     user_object = UserModel(

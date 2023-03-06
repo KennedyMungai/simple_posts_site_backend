@@ -24,6 +24,8 @@ class UserRequest(UserBase):
     password: str
 
     class Config:
+        """The config for the UserRequest class
+        """
         orm_mode = True
 
 

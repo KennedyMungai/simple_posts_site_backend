@@ -23,6 +23,9 @@ class UserRequest(UserBase):
     """
     password: str
 
+    class Config:
+        orm_mode = True
+
 
 class UserResponse(UserBase):
     """Created the template for the User response

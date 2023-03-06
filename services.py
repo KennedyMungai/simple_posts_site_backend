@@ -1,6 +1,7 @@
 """This script contains the services code"""
 import database as _database
 import models as _models
+from sqlalchemy import orm
 
 
 def create_db():
@@ -20,3 +21,7 @@ def get_db():
         yield _db
     finally:
         _db.close()
+
+
+async def get_user_by_email(email: str, db: orm.Session):
+    return db.query(_models.UserModel).filter(_models.UserModel.email == email).first()

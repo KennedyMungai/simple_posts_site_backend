@@ -64,6 +64,11 @@ class PostRequest(PostBase):
     """
     pass
 
+    class Config:
+        """The config for the UserRequest class. orm_mode ceases the lazy loading for the data
+        """
+        orm_mode = True
+
 
 class PostResponse(PostBase):
     """The template for any response Post data
@@ -74,3 +79,8 @@ class PostResponse(PostBase):
     id: int
     user_id: int
     create_at: datetime.datetime
+
+    class Config:
+        """The config for the UserRequest class. orm_mode ceases the lazy loading for the data
+        """
+        orm_mode = True

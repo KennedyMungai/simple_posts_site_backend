@@ -40,7 +40,7 @@ async def get_user_by_email(email: str, _db: _orm.Session):
     return _db.query(_models.UserModel).filter(_models.UserModel.email == email).first()
 
 
-async def create_user(user: UserRequest, db: _orm.Session):
+async def create_user(user: UserRequest, _db: _orm.Session):
     """A function to create a user in the database
 
     Args:

@@ -16,4 +16,9 @@ class UserBase(BaseModel):
 
 
 class UserRequest(UserBase):
+    """The template for the data requested by the server
+
+    Args:
+        UserBase (Class defined above): The base class for the data
+    """
     password: str

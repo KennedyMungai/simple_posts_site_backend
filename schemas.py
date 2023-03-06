@@ -54,3 +54,12 @@ class PostBase(BaseModel):
     post_title: str
     post_description: str
     image: str
+
+
+class PostRequest(PostBase):
+    """The template for the request class of Post
+
+    Args:
+        PostBase (Parent class): The parent class of the PostRequest class
+    """
+    pass

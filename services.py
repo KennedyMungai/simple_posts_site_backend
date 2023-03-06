@@ -3,10 +3,12 @@ from email_validator import EmailNotValidError, validate_email
 from fastapi import HTTPException
 from passlib import hash as _hash
 from sqlalchemy import orm as _orm
+import jwt as _jwt
 
 import database as _database
 from models import UserModel
-from schemas import UserRequest
+from schemas import UserRequest, UserBase
+from keys import _JWT_SECRET
 
 
 def create_db():
@@ -72,3 +74,21 @@ async def create_user(user: UserRequest, _db: _orm.Session):
     _db.refresh(user_object)
 
     return user_object
+
+
+async def create_token(user: UserModel):
+    """A function to create token
+
+    Args:
+        user (UserModel): The template for user data
+    """
+    # convert user model to user schema
+    user_schema = UserBase.from_orm(user)
+
+    # Convert a normal object to a dictionary
+    user_dict = user_schema.dict()
+    del user_dict["created_at"]
+
+    token = _jwt.encode(user_dict, _JWT_SECRET)
+
+    return dict(accessToken=token, token_type="bearer")

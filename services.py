@@ -24,4 +24,13 @@ def get_db():
 
 
 async def get_user_by_email(email: str, _db: orm.Session):
+    """A function that filters users by their emails
+
+    Args:
+        email (str): The email address being queried
+        _db (orm.Session): The database session
+
+    Returns:
+        string: The email being queried
+    """
     return _db.query(_models.UserModel).filter(_models.UserModel.email == email).first()

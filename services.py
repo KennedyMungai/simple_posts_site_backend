@@ -1,12 +1,12 @@
 """This script contains the services code"""
 from email_validator import EmailNotValidError, validate_email
 from fastapi import HTTPException
+from passlib import hash
 from sqlalchemy import orm as _orm
 
 import database as _database
 from models import UserModel
 from schemas import UserRequest
-from passlib import hash
 
 
 def create_db():
@@ -69,3 +69,6 @@ async def create_user(user: UserRequest, _db: _orm.Session):
     # Save the user in the database
     _db.add(user_object)
     _db.commit()
+    _db.refresh(user_object)
+
+    return user_object

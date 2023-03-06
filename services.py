@@ -1,5 +1,4 @@
-"""This script contains the services code
-"""
+"""This script contains the services code"""
 import database as _database
 import models as _models
 

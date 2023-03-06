@@ -65,3 +65,7 @@ async def create_user(user: UserRequest, _db: _orm.Session):
         phone=user.phone,
         password_hash=hashed_password
     )
+
+    # Save the user in the database
+    db.add(user_object)
+    db.commit()

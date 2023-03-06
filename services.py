@@ -4,8 +4,9 @@ from fastapi import HTTPException
 from sqlalchemy import orm as _orm
 
 import database as _database
-import models as _models
+from models import UserModel
 from schemas import UserRequest
+from passlib import hash
 
 
 def create_db():
@@ -37,7 +38,7 @@ async def get_user_by_email(email: str, _db: _orm.Session):
     Returns:
         string: The email being queried
     """
-    return _db.query(_models.UserModel).filter(_models.UserModel.email == email).first()
+    return _db.query(UserModel).filter(UserModel.email == email).first()
 
 
 async def create_user(user: UserRequest, _db: _orm.Session):
@@ -54,3 +55,9 @@ async def create_user(user: UserRequest, _db: _orm.Session):
     except EmailNotValidError:
         raise HTTPException(
             status_code=400, detail="Provide a valid email address")
+
+    user_object = UserModel(
+        email=email,
+        name=user.name,
+        phone=user.phone
+    )

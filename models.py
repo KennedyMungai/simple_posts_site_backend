@@ -31,7 +31,8 @@ class UserModel(Base):
             password (str): The password
 
         Returns:
-            _type_: A comparison between the password passed into the parameters and the one stored in the database
+            _type_: A comparison between the password passed
+                    into the parameters and the one stored in the database
         """
         return _hash.bcrypt.verify(password, self.password_hash)
 

@@ -38,3 +38,8 @@ class UserResponse(UserBase):
     """
     id: int
     created_at: datetime.datetime
+
+    class Config:
+        """The config for the UserRequest class. orm_mode ceases the lazy loading for the data
+        """
+        orm_mode = True

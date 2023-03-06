@@ -1,9 +1,10 @@
 """This is the new entry point for the application"""
-from fastapi import FastAPI, Security as _security, Depends, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Security as _security
 from sqlalchemy import orm as _orm
-from services import get_db, get_user_by_email
 
 from schemas import UserRequest
+from services import get_db, get_user_by_email
 
 app = FastAPI()
 

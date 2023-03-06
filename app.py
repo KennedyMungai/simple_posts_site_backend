@@ -1,6 +1,5 @@
 """This is the new entry point for the application"""
 from fastapi import Depends, FastAPI, HTTPException
-from fastapi import Security as _security
 from sqlalchemy import orm as _orm
 
 from schemas import UserRequest

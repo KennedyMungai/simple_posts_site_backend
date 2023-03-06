@@ -3,6 +3,8 @@ import database as _database
 import models as _models
 from sqlalchemy import _orm
 from schemas import UserRequest
+from email_validator import validate_email, EmailNotValidError
+from fastapi import HTTPException
 
 
 def create_db():
@@ -44,3 +46,12 @@ async def create_user(user: UserRequest, db: _orm.Session):
         user (UserRequest): The template of the data needed to create the user
         db (_orm.Session): A single session in the database
     """
+    # Check for valid email
+    try:
+        isValid = validate_email(email=user.email)
+        email = isValid.email
+    except EmailNotValidError:
+        raise HTTPException(
+            status_code=400,
+            detail="Provide a valid email address"
+        )

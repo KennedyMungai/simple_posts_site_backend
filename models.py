@@ -24,6 +24,9 @@ class UserModel(Base):
     created_at = Column(DateTime, default=datetime.datetime.utcnow())
     posts = _orm.relationship("Post", back_populates="user")
 
+    def password_verification(self, password: str):
+        return ''
+
 
 class PostModel(Base):
     """The template for the PostModel data structure

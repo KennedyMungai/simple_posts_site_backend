@@ -43,3 +43,14 @@ class UserResponse(UserBase):
         """The config for the UserRequest class. orm_mode ceases the lazy loading for the data
         """
         orm_mode = True
+
+
+class PostBase(BaseModel):
+    """This is the base model for the post
+
+    Args:
+        BaseModel (class): The parent class of the PostBase class
+    """
+    post_title: str
+    post_description: str
+    image: str

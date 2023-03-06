@@ -25,6 +25,14 @@ class UserModel(Base):
     posts = _orm.relationship("Post", back_populates="user")
 
     def password_verification(self, password: str):
+        """This is a simple function that does password comparison
+
+        Args:
+            password (str): The password
+
+        Returns:
+            _type_: A comparison between the password passed into the parameters and the one stored in the database
+        """
         return _hash.bcrypt.verify(password, self.password_hash)
 
 

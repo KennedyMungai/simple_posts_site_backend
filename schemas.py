@@ -22,7 +22,7 @@ class UserRequest(UserBase):
     Args:
         UserBase (Class defined above): The base class for the data
     """
-    password_hash: str
+    password: str
 
     class Config:
         """The config for the UserRequest class. orm_mode ceases the lazy loading for the data

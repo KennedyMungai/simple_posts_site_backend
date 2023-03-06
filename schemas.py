@@ -63,3 +63,14 @@ class PostRequest(PostBase):
         PostBase (Parent class): The parent class of the PostRequest class
     """
     pass
+
+
+class PostResponse(PostBase):
+    """The template for any response Post data
+
+    Args:
+        PostBase (The parent class): The parent class of the PostResponse class
+    """
+    id: int
+    user_id: int
+    create_at: datetime.datetime

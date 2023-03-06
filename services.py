@@ -1,10 +1,11 @@
 """This script contains the services code"""
+from email_validator import EmailNotValidError, validate_email
+from fastapi import HTTPException
+from sqlalchemy import orm as _orm
+
 import database as _database
 import models as _models
-from sqlalchemy import _orm
 from schemas import UserRequest
-from email_validator import validate_email, EmailNotValidError
-from fastapi import HTTPException
 
 
 def create_db():

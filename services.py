@@ -1,7 +1,7 @@
 """This script contains the services code"""
 from email_validator import EmailNotValidError, validate_email
 from fastapi import HTTPException
-from passlib import hash
+from passlib import hash as _hash
 from sqlalchemy import orm as _orm
 
 import database as _database
@@ -57,7 +57,7 @@ async def create_user(user: UserRequest, _db: _orm.Session):
             status_code=400, detail="Provide a valid email address")
 
     # Convert a normal password to a hash
-    hashed_password = hash.bcrypt.hash(user.password)
+    hashed_password = _hash.bcrypt.hash(user.password)
 
     user_object = UserModel(
         email=email,

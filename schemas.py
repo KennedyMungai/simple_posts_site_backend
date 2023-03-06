@@ -1,7 +1,7 @@
 """A file that holds all the schema data
 """
 from pydantic import BaseModel
-import datetime as _datetime
+import datetime
 
 
 class UserBase(BaseModel):
@@ -22,3 +22,13 @@ class UserRequest(UserBase):
         UserBase (Class defined above): The base class for the data
     """
     password: str
+
+
+class UserResponse(UserBase):
+    """Created the template for the User response
+
+    Args:
+        UserBase (The base class for the data): This is the parent class for this class
+    """
+    id: int
+    created_at: datetime.datetime

@@ -11,7 +11,7 @@ app = FastAPI()
 @app.post('/api/v1/users')
 async def register_user(user: UserRequest, _db: _orm.Session = Depends(get_db())):
     """The API endpoint for user creation in the application"""
-    db_user = await get_user_by_email(email: user.email, db: _db)
+    db_user = await get_user_by_email(user.email, _db)
 
     if db_user:
         raise HTTPException(

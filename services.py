@@ -53,6 +53,4 @@ async def create_user(user: UserRequest, _db: _orm.Session):
         email = is_valid.email
     except EmailNotValidError:
         raise HTTPException(
-            status_code=400,
-            detail="Provide a valid email address"
-        )
+            status_code=400, detail="Provide a valid email address")

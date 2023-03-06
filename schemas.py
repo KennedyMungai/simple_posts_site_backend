@@ -62,7 +62,7 @@ class PostRequest(PostBase):
     Args:
         PostBase (Parent class): The parent class of the PostRequest class
     """
-    pass
+    
 
     class Config:
         """The config for the UserRequest class. orm_mode ceases the lazy loading for the data
